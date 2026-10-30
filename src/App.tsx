@@ -249,14 +249,21 @@ export default function App() {
               <div className="relative group">
                 <div className="absolute -inset-1 bg-gradient-to-tr from-amber-500/30 to-emerald-500/30 rounded-3xl blur-xl opacity-60"></div>
                 <div className="relative rounded-2xl bg-[#111915] border border-white/10 p-6 overflow-hidden">
-                  <div className="aspect-[4/3] rounded-xl overflow-hidden bg-gradient-to-br from-emerald-900/40 via-slate-900 to-amber-950/40 flex flex-col justify-end p-6 border border-white/5 relative">
+                  <div className="aspect-[4/3] rounded-xl overflow-hidden relative border border-white/10 group-hover:border-emerald-500/30 transition-all">
+                    <img
+                      src="/agustin.jpg"
+                      alt="Agustín Vaca Cornejo - Greenside"
+                      className="w-full h-full object-cover object-top transform group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent"></div>
+
                     {/* Elementos decorativos de Mendoza */}
                     <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 text-[11px] text-amber-300 font-medium flex items-center gap-1.5">
                       <Sun className="w-3.5 h-3.5" /> Sol Cuyano
                     </div>
 
-                    <div className="space-y-2 z-10">
-                      <div className="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 p-2 flex items-center justify-center mb-2">
+                    <div className="absolute bottom-4 left-4 right-4 space-y-1 z-10">
+                      <div className="w-10 h-10 rounded-lg bg-black/50 backdrop-blur-md border border-white/20 p-1.5 flex items-center justify-center mb-1">
                         <img src="/logo.png" alt="Greenside" className="w-full h-full object-contain" />
                       </div>
                       <h4 className="text-lg font-bold text-white">Agustín Vaca Cornejo</h4>
@@ -591,7 +598,7 @@ export default function App() {
               {
                 step: '01',
                 title: 'Estudio de Viabilidad',
-                desc: 'Analizamos tus facturas pasadas, la orientación de tu techo y la irradiación solar de tu ubicación exacta en Mendoza.',
+                desc: 'Analizamos tus facturas pasadas, la orientación y realizamos el relevamiento técnico de tu propiedad. El costo del relevamiento se descuenta al 100% al adquirir tu equipo.',
               },
               {
                 step: '02',
@@ -670,6 +677,10 @@ export default function App() {
                 a: "En promedio, el retorno de inversión oscila entre 3 a 5 años, dependiendo del nivel de consumo y las tarifas vigentes. Considerando que los paneles solares tienen una vida útil superior a 25 años, obtenés más de 20 años de electricidad prácticamente gratuita.",
               },
               {
+                q: "¿El relevamiento técnico tiene costo?",
+                a: "El costo del relevamiento técnico se descuenta al 100% del valor total al adquirir tu equipo. Esto te permite evaluar con absoluta precisión la ingeniería de tu techo y el dimensionamiento antes de dar el paso final sin costo extra en tu inversión.",
+              },
+              {
                 q: "¿Qué mantenimiento requieren los paneles solares?",
                 a: "El mantenimiento es mínimo debido a que no cuentan con piezas móviles. Solo se recomienda una limpieza periódica con agua para remover polvo de zonda o sedimentos y garantizar la máxima captación solar.",
               },
@@ -744,7 +755,7 @@ export default function App() {
 
               <div className="p-4 rounded-2xl bg-gradient-to-r from-emerald-950/60 to-emerald-900/20 border border-emerald-500/20">
                 <p className="text-xs text-emerald-200">
-                  ⚡ <strong>Promoción Impulso:</strong> Mencioná esta web y recibí el relevamiento termográfico y estructural de tu techo 100% bonificado.
+                  ⚡ <strong>Promoción & Garantía:</strong> El costo del relevamiento técnico se descuenta al 100% del valor total al adquirir tu equipo.
                 </p>
               </div>
             </div>
