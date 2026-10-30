@@ -9,6 +9,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  actions: read
 
 concurrency:
   group: "pages"
@@ -45,6 +46,23 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - name: Wait for default branch Pages build if running
+        run: |
+          echo "Checking if default 'pages build and deployment' is running..."
+          sleep 6
+          for i in {1..30}; do
+            STATUS=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/runs?head_sha=${{ github.sha }}" \
+              | jq -r '.workflow_runs[] | select(.name == "pages build and deployment" and .status != "completed") | .status' | head -n 1)
+            if [ -z "$STATUS" ]; then
+              echo "No active default pages build found. Proceeding with deployment."
+              break
+            fi
+            echo "Default pages build is still '$STATUS' (attempt $i/30). Waiting 4s..."
+            sleep 4
+          done
+          sleep 4
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
