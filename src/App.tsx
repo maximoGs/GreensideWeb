@@ -163,7 +163,9 @@ export default function App() {
 
     const text =
       customMessage ||
-      `Hola Greenside! Mi nombre es ${formName || 'un interesado'}. Me contacto desde ${
+      `Hola Greenside! Mi nombre es ${formName || 'un interesado'}${
+        formPhone ? ` (Tel: ${formPhone})` : ''
+      }. Me contacto desde ${
         formLoc || 'Mendoza'
       } por un sistema solar ${modeLabel} para ${propertyType} (~${recommendedKwp} kWp / ${panelCount} paneles). Mi factura mensual aproximada es de $${monthlyBill.toLocaleString(
         'es-AR'
@@ -172,7 +174,7 @@ export default function App() {
           ? `Consulta: ${formMsg}`
           : 'Me interesa coordinar un relevamiento técnico (con el 100% de descuento al adquirir el equipo).'
       }`;
-    const url = `https://wa.me/5492610000000?text=${encodeURIComponent(text)}`;
+    const url = `https://wa.me/5492614680772?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank');
   };
 
@@ -1375,17 +1377,24 @@ export default function App() {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3.5">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 flex-shrink-0">
+                <a
+                  href="https://wa.me/5492614680772"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3.5 group hover:bg-white/[0.02] p-1.5 -m-1.5 rounded-xl transition-colors"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 flex-shrink-0 group-hover:bg-emerald-500 group-hover:text-slate-950 transition-colors">
                     <MessageCircle className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="block text-white font-semibold">WhatsApp Ingeniería Directa</span>
+                    <span className="block text-white font-semibold group-hover:text-emerald-400 transition-colors">
+                      WhatsApp Directo: +54 9 2614 68-0772
+                    </span>
                     <span className="text-xs text-slate-400">
                       Respuesta ágil para cotizaciones y coordinación de visitas técnicas
                     </span>
                   </div>
-                </div>
+                </a>
               </div>
             </div>
 
@@ -1505,7 +1514,7 @@ export default function App() {
               <div>
                 <span className="font-bold text-white text-sm">Greenside Energía Solar</span>
                 <p className="text-[11px] text-slate-400">
-                  Fundado por Agustín Vaca Cornejo • Mendoza, Argentina
+                  Fundado por Agustín Vaca Cornejo • Mendoza, Argentina • WhatsApp: +54 9 2614 68-0772
                 </p>
               </div>
             </div>
